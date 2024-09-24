@@ -9,5 +9,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'memory';
+
+  ngOnInit() {
+    // TODO: Make the thing
+  }
+
+  getRandomNumber(): number {
+    return Math.floor(Math.random() * 8)
+  }
+
 }
