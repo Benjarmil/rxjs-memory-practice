@@ -1,3 +1,6 @@
+$red: #ff4136;
+$green: #36ff97;
+
 :host {
   height: 100%;
   display: flex;
@@ -16,7 +19,7 @@
   padding: .5em;
   display: table-cell;
   border: 1px solid rgba(0, 0, 0, .5);
-  transition: all .15s ease-in;
+  transition: all .5s ease-in;
   cursor: pointer;
   border-radius: 15px;
 
@@ -24,6 +27,27 @@
     background-color: #272822;
   }
   &:active {
-    background-color: #ff4136;
+    transition: none;
+    background-color: $red;
+  }
+  &.correct:active {
+    transition: none;
+    background-color: $green;
+  }
+
+  &.highlighted {
+    animation: highlight 1s infinite;
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: $green;
+  }
+  100% {
+    background-color: inherit;
   }
 }
