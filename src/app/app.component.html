@@ -1,12 +1,15 @@
-<h1 id="info">Train Your Memory!</h1>
-<div id="grid" class="grid parent">
-  <div class="child" id="1"></div>
-  <div class="child" id="2"></div>
-  <div class="child" id="3"></div>
-  <div class="child" id="4"></div>
-  <div class="child" id="5"></div>
-  <div class="child" id="6"></div>
-  <div class="child" id="7"></div>
-  <div class="child" id="8"></div>
-  <div class="child" id="9"></div>
-</div>
+@if(game$ | async; as game) {
+  <h1 id="info">
+    @if(game.info) { {{game.info}} }
+    @else { Train your memory! }
+  </h1>
+  <div id="grid" class="grid parent">
+      @for (child of cards; track child) {
+        <div class="child"
+          [id]="child"
+          [class.highlighted]="game.highlightCard === child"
+          [class.correct]="game.nextCard === child"
+        ></div>
+      }
+  </div>
+}
