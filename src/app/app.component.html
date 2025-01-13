@@ -9,6 +9,7 @@
           [id]="child"
           [class.highlighted]="game.highlightCard === child"
           [class.correct]="game.nextCard === child"
+          (click)="clickSubject.next(child)"
         ></div>
       }
   </div>
